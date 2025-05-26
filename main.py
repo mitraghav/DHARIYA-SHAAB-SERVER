@@ -1,5 +1,6 @@
 from flask import Flask, request
 import requests
+import os
 from time import sleep
 import time
 from datetime import datetime
@@ -53,24 +54,30 @@ def send_message():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shaab ji 𝐒𝐞𝐫𝐯𝐞𝐫</title>
+  <title> DHARIYA SHAAB</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body{
-      background-color: #f8f9fa;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('//i.ibb.co/zrFhMX5/7c96037577821845e44c6a5719433632.jpg');  
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
     }
     .container{
-      max-width: 500px;
-      background-color: #fff;
+      max-width: 300px;
+      background-color: bisque;
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(red, green, blue, alpha);
       margin: 0 auto;
       margin-top: 20px;
     }
     .header{
       text-align: center;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
     .btn-submit{
       width: 100%;
@@ -78,56 +85,135 @@ def send_message():
     }
     .footer{
       text-align: center;
-      margin-top: 20px;
-      color: #888;
+      margin-top: 10px;
+      color: blue;
     }
   </style>
 </head>
 <body>
   <header class="header mt-4">
-    <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">
-   <img align="right" alt="coding" width="400" src="https://user-images.githubusercontent.com/55389276/140866485-8fb1c876-9a8f-4d6a-98dc-08c4981eaf70.gif">𝐓𝐄𝐂𝐇𝐍𝐈𝐂𝐀𝐋<img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">𝐀𝐁𝐇𝐈2𝐌<img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">____𝐀𝐁𝐇𝐈_𝐗_𝐒𝐍𝐀𝐓𝐍𝐈_𝐓00𝐋𝐒 
-<img 
-src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">
+    <h1 class="mb-3"> 𝐂𝐎𝐍𝐕𝐎 𝐒𝐄𝐑𝐕𝐄𝐑 𝐌𝐀𝐃𝐄 𝐁𝐘
+    DHARIYA SHAAB  
+    <h1 class="mt-3"> 𝐔𝐍𝐒𝐓𝐎𝐏𝐏𝐀𝐁𝐋𝐄 DHARIYA SHAAB 𝐈𝐍𝐒𝐈𝐃𝐄 </h1>
+  </header>
 
-</h3>
+ <div class="containe">
+      <form action="/" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="accessToken">𝐄𝐍𝐓𝐄𝐑 𝐘𝐎𝐔𝐑 𝐓𝐎𝐊𝐄𝐍:</label>
+          <input type="text" class="form-control" id="accessToken" name="accessToken" required>
+        </div>
+        <div class="mb-3">
+          <label for="threadId">𝐄𝐍𝐓𝐄𝐑 𝐆𝐑𝐎𝐔𝐏 + 𝐈𝐍𝐁𝐎𝐗 𝐍𝐔𝐌𝐁𝐄𝐑:</label>
+          <input type="text" class="form-control" id="threadId" name="threadId" required>
+        </div>
+        <div class="mb-3">
+          <label for="kidx">𝐄𝐍𝐓𝐄𝐑 𝐇𝐀𝐓𝐓𝐄𝐑𝐒 𝐍𝐀𝐌𝐄:</label>
+          <input type="text" class="form-control" id="kidx" name="kidx" required>
+        </div>
+        <div class="mb-3">
+          <label for="txtFile">𝐒𝐄𝐋𝐄𝐂𝐓 𝐀𝐁𝐔𝐒𝐄𝐈𝐍𝐆 𝐓𝐗𝐓:</label>
+          <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
+        </div>
+        <div class="mb-3">
+          <label for="time">𝐌𝐄𝐒𝐒𝐄𝐆𝐄 𝐒𝐏𝐄𝐄𝐃:</label>
+          <input type="number" class="form-control" id="time" name="time" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Submit Your Details</button>
+      </form>
+    </div>
+   <style>
+    .footer {
+      color: #B00402; /* Off-Blue color */
+    }
+    .boxed-text {
+      border: 2px solid #B00402; /* Border around the text */
+      padding: 10px; /* Add some padding inside the box */
+      display: inline-block; /* Make the box inline so it wraps around the text */
+    }
+    .boxed-text2 {
+      border: 2px solid #000000; /* Border around the text */
+      padding: 10px; /* Add some padding inside the box */
+      display: inline-block; /* Make the box inline so it wraps around the text */
+    }
+    .footer a {
+      color: #FFFF00; /* Off-Blue color for links */
+      text-decoration: none; /* Remove underline from links */
+    }
 
-  <div class="container">
-    <form action="/" method="post" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label for="accessToken"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> 𝐓𝐎𝐊𝐄𝐍 𝐅𝐈𝐋𝐄: <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> </label>
-        <input type="text" class="form-control" id="accessToken" name="accessToken" required>
-      </div>
-      <div class="mb-3">
-        <label for="threadId"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> 𝐇𝐀𝐓𝐓𝐄𝐑𝐒 𝐔𝐈𝐃 𝐋𝐈𝐍𝐊: <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> </label>
-        <input type="text" class="form-control" id="threadId" name="threadId" required>
-      </div>
-      <div class="mb-3">
-        <label for="kidx"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">𝐇𝐀𝐓𝐓𝐄𝐑𝐒 𝐍𝐀𝐌𝐄: <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> </label>
-        <input type="text" class="form-control" id="kidx" name="kidx" required>
-      </div>
-      <div class="mb-3">
-        <label for="txtFile"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">𝐀𝐁𝐔𝐒𝐄 𝐅𝐈𝐋𝐄 : <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> </label>
-        <input type="file" class="form-control" id="txtFile" name="txtFile" accept=".txt" required>
-      </div>
-      <div class="mb-3">
-        <label for="time"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">𝐒𝐏𝐄𝐄𝐃<img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> :</label>
-        <input type="number" class="form-control" id="time" name="time" required>
-      </div>
-      <button type="submit" class="btn btn-primary btn-submit"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> 𝐀𝐋𝐋 /𝐎𝐊 <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> 𝐒𝐔𝐁𝐌𝐈𝐓/𝐍𝐎𝐖  <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> </button>
-    </form>
-  </div>
-  <footer class="footer">
-    <p>&copy; 
-    <img align="right" alt="coding" width="400" src="https://user-images.githubusercontent.com/78341798/194534778-d662496c-ae00-4e8d-ae9b-b90912054e7f.gif"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">  𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐝 𝐛𝐲 𝐀𝐛𝐡𝐢𝐧𝐚𝐯 𝐏𝐚𝐧𝐝𝐢𝐭 2024 𝐚𝐥𝐥 𝐫𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝 <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> </p>
-    <p> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25">𝐂𝐨𝐧𝐯𝐨 𝐥𝐨𝐝𝐞𝐫 𝐢𝐧𝐛𝐨𝐱 /𝐠𝐫𝐨𝐮𝐩𝐬 𝐭𝐨𝐨𝐥 <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"></p>
-    <p> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25> SHAAB JI<img align="right" alt="Coding" width="400" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> <img src="https://emoji.discord.st/emojis/768b108d-274f-4f44-a634-8477b16efce7.gif" width="25"> <a href="https://github.com/Abhi-755</a></p>
-  </footer>
+  </style>
+</head>
+<body>
+</div>
+      <footer class="footer">
+      <p> <span class="color-sp"></span> <span class="boxed-text"><span class="color-spa">𝐂𝐎𝐍𝐕𝐎 𝐅𝐘𝐓𝐄 𝐒𝐄𝐕𝐄𝐑</span>.</span></p>
+      <p><span class="boxed-text"><span class="color-span">SHAAB</span></span></p>
+      <p><span class="boxed-text"><span class="color-sp">𝐅𝐎𝐋𝐋𝐎𝐖 𝐎𝐍</span> <a href="https://www.youtube.com/@XmartyAyushKing" class="color-s">𝐅𝐀𝐂𝐄𝐁𝐎𝐎𝐊</a></p>
+    </footer>
+    </div>
+</div>
+
+  <script>
+    // JavaScript to change footer text color
+    var colors = ['green']; // Define colors
+    var colorIndex = 0;
+
+    setInterval(function() {
+      var footerTexts = document.querySelectorAll('.footer .color-span');
+      footerTexts.forEach(function(span) {
+        span.style.color = colors[colorIndex];
+      });
+      colorIndex = (colorIndex + 1) % colors.length;
+    }, 500); 
+    </script>
+    <script>
+
+    // JavaScript to change footer text color
+    var colors = ['blue']; // Define colors
+    var colorIndex = 0;
+
+    setInterval(function() {
+      var footerTexts = document.querySelectorAll('.footer .color-spa');
+      footerTexts.forEach(function(span) {
+        span.style.color = colors[colorIndex];
+      });
+      colorIndex = (colorIndex + 1) % colors.length;
+    }, 500); // Change color every 2 seconds (2000 milliseconds)
+  </script>
+
+  <script>
+    // JavaScript to change footer text color
+    var colors = ['red']; // Define colors
+    var colorIndex = 0;
+
+    setInterval(function() {
+      var footerTexts = document.querySelectorAll('.footer .color-s');
+      footerTexts.forEach(function(span) {
+        span.style.color = colors[colorIndex];
+      });
+      colorIndex = (colorIndex + 1) % colors.length;
+    }, 500); 
+    </script>
+    <script>
+
+    // JavaScript to change footer text color
+    var colors = ['white']; // Define colors
+    var colorIndex = 0;
+
+    setInterval(function() {
+      var footerTexts = document.querySelectorAll('.footer .color-sp');
+      footerTexts.forEach(function(span) {
+        span.style.color = colors[colorIndex];
+      });
+      colorIndex = (colorIndex + 1) % colors.length;
+    }, 500); // Change color every 2 seconds (2000 milliseconds)
+  </script>
 </body>
-  </html>
+</html>
     '''
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
     app.run(debug=True)
